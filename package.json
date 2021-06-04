@@ -49,6 +49,7 @@
         "@babel/preset-typescript": "^7.12.7",
         "@commitlint/cli": "^11.0.0",
         "@commitlint/config-conventional": "^11.0.0",
+        "@types/express": "^4.17.12",
         "@types/jest": "^26.0.15",
         "@types/node": "^14.14.10",
         "@typescript-eslint/eslint-plugin": "^4.8.2",
@@ -82,5 +83,8 @@
         "commitizen": {
             "path": "node_modules/cz-conventional-changelog"
         }
+    },
+    "dependencies": {
+        "express": "^4.17.1"
     }
 }
