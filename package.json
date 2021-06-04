@@ -38,7 +38,8 @@
         "commit": "npx git-cz",
         "lint": "npx eslint ./src/**/*.ts",
         "release": "npx standard-version",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "postinstall": "npm run build"
     },
     "devDependencies": {
         "@babel/core": "^7.12.10",
