@@ -1,16 +1,16 @@
 {
-    "name": "--libraryname--",
+    "name": "games-live-statistic",
     "version": "1.0.0",
     "description": "",
     "keywords": [],
-    "main": "dist/--libraryname--.js",
+    "main": "dist/gamesLiveStatistic.js",
     "module": "dist/es-modules/index.js",
     "typings": "dist/es-modules/index.d.ts",
     "browserslist": "> 0.25%, not dead",
     "files": [
         "dist"
     ],
-    "author": "--username-- <--usermail-->",
+    "author": "jkanchelov <yordan.kanchelov@gmail.com>",
     "repository": {
         "type": "git",
         "url": ""
@@ -25,9 +25,11 @@
         "prepublishOnly": "npm run build",
         "type-check": "tsc --noEmit",
         "type-check:watch": "npm run type-check -- --watch",
-        "build": "tsc && rollup -c rollup.config.ts && typedoc --out docs --target es6 --theme minimal --mode file src",
-        "build:watch": "rollup -c rollup.config.ts -w",
-        "start": "run-p type-check:watch build:watch",
+        "build": "tsc",
+        "build:watch": "tsc -w",
+        "run:watch": "npx nodemon dist/index.js",
+        "start": "node dist/index.js",
+        "start:watch": "run-p build:watch run:watch",
         "test": "jest --coverage",
         "test:watch": "jest --coverage --watch",
         "test:prod": "npm run lint && npm run test -- --no-cache",
@@ -36,7 +38,6 @@
         "commit": "npx git-cz",
         "lint": "npx eslint ./src/**/*.ts",
         "release": "npx standard-version",
-        "postinstall": "ts-node tools/init",
         "prepare": "husky install"
     },
     "devDependencies": {
@@ -48,7 +49,6 @@
         "@babel/preset-typescript": "^7.12.7",
         "@commitlint/cli": "^11.0.0",
         "@commitlint/config-conventional": "^11.0.0",
-        "@rollup/plugin-babel": "^5.2.2",
         "@types/jest": "^26.0.15",
         "@types/node": "^14.14.10",
         "@typescript-eslint/eslint-plugin": "^4.8.2",
@@ -71,12 +71,6 @@
         "prompt": "^1.0.0",
         "replace-in-file": "^6.1.0",
         "rimraf": "^3.0.2",
-        "rollup": "^2.33.3",
-        "rollup-plugin-commonjs": "^9.1.8",
-        "rollup-plugin-json": "^3.1.0",
-        "rollup-plugin-node-resolve": "^3.4.0",
-        "rollup-plugin-sourcemaps": "^0.6.3",
-        "rollup-plugin-terser": "^7.0.2",
         "shelljs": "^0.8.4",
         "standard-version": "^9.0.0",
         "ts-jest": "^26.4.4",

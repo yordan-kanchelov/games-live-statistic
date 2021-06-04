@@ -9,7 +9,7 @@ import path from "path";
 
 const pkg = require("./package.json");
 
-const libraryName = "--libraryname--";
+const libraryName = "games-live-statistic";
 
 const extensions = [".js", ".jsx", ".ts", ".tsx"];
 

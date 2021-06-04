@@ -1,3 +1,3 @@
-import { --libraryPascalCaseName-- } from "./--libraryname--";
+import { GamesLiveStatistic } from "./games-live-statistic";
 
-export { --libraryPascalCaseName-- };
+export { GamesLiveStatistic };
