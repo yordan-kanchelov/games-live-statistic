@@ -1,15 +1,18 @@
 import express from "express";
-const app = express();
+import helmet from "helmet";
+import cors from "cors";
+import bodyParser from "body-parser";
+
 const port = process.env.PORT || 3000;
+const app = express();
+const router = express.Router();
 
-app.get("/", (req, res) => {
-    res.send("Hello World!");
-});
+app.use(helmet());
+app.use(cors());
+app.use(express.json());
 
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
-});
+router.all("*", cors()); // allow cors
+router.use(require("./api/post-user-statistic"));
 
-// import { GamesLiveStatistic } from "./games-live-statistic";
-
-// export { GamesLiveStatistic };
+app.use("/api", router);
+app.listen(port);

@@ -42,7 +42,9 @@
         "postinstall": "npm run build"
     },
     "dependencies": {
-        "express": "^4.17.1"
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "helmet": "^4.6.0"
     },
     "devDependencies": {
         "@babel/core": "^7.14.3",
@@ -53,7 +55,9 @@
         "@babel/preset-typescript": "^7.13.0",
         "@commitlint/cli": "^12.1.4",
         "@commitlint/config-conventional": "^12.1.4",
+        "@types/cors": "^2.8.10",
         "@types/express": "^4.17.12",
+        "@types/helmet": "^4.0.0",
         "@types/jest": "^26.0.23",
         "@types/node": "^15.12.1",
         "@typescript-eslint/eslint-plugin": "^4.26.0",
