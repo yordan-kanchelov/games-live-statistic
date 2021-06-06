@@ -1,0 +1,10 @@
+POST https://games-live-statistic.herokuapp.com/api/game-statistic HTTP/1.1
+content-type: application/json
+
+{
+    "gin": 19,
+    "pid": "SUPERMAN",
+    "balance": 40000000,
+    "bet": 100,
+    "currency": "BGN"
+}

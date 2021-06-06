@@ -1,0 +1,11 @@
+POST http://localhost:3000/api/game-statistic HTTP/1.1
+content-type: application/json
+
+{
+    "gin": 19,
+    "pid": "BATMAN",
+    "balance": 4060000000,
+    "bet": 100,
+    "currency": "BGN"
+}
+
