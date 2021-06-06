@@ -19,11 +19,23 @@ export class GameSession {
 
         if (!player) {
             player = new Player(data.pid, data.balance);
+
+            if (data.currency) {
+                player.currency = data.currency;
+            }
+
             this.players.push(player);
         }
 
+        if (typeof data.balance != "undefined") {
+            player.balance = data.balance;
+        }
+
+        if (typeof data.bet != "undefined") {
+            player.totalBet += data.bet;
+        }
+
         player.lastPing = new Date().getTime();
-        player.totalBet += data.bet;
     }
 
     removeInactivePlayers(): void {

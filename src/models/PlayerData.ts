@@ -3,4 +3,5 @@ export type PlayerData = {
     pid: string;
     balance?: number;
     bet: number;
+    currency: string;
 };
