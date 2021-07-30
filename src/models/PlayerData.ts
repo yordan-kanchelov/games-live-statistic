@@ -4,4 +4,5 @@ export type PlayerData = {
     balance?: number;
     bet: number;
     currency: string;
+    uuid?: string;
 };

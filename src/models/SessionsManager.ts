@@ -30,7 +30,7 @@ export class SessionsManager {
         setInterval(this.removeEmptySessions.bind(this), 1000);
     }
 
-    updateSession(data: PlayerData) {
+    updateSession(data: PlayerData): string {
         let session = this.findGameSessionByGIN(data.gin);
 
         if (!session) {
@@ -38,7 +38,9 @@ export class SessionsManager {
             this.activeGameSessions.push(session);
         }
 
-        session.updatePlayer(data);
+        const playerUUID = session.updatePlayer(data);
+
+        return playerUUID;
     }
 
     private removeEmptySessions() {

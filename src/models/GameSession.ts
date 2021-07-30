@@ -14,8 +14,8 @@ export class GameSession {
         setInterval(this.removeInactivePlayers.bind(this), 1000);
     }
 
-    updatePlayer(data: PlayerData): void {
-        let player = this.findPlayerByName(data.pid);
+    updatePlayer(data: PlayerData): string {
+        let player = this.findPlayer(data);
 
         if (!player) {
             player = new Player(data.pid, data.balance);
@@ -36,6 +36,8 @@ export class GameSession {
         }
 
         player.lastPing = new Date().getTime();
+
+        return player.UUID;
     }
 
     removeInactivePlayers(): void {
@@ -56,7 +58,9 @@ export class GameSession {
         this.players.splice(this.players.indexOf(player), 1);
     }
 
-    private findPlayerByName(playerName: string): Player | undefined {
-        return this.players.find((player) => (player.pid === playerName ? true : false));
+    private findPlayer(data: PlayerData): Player | undefined {
+        if (data.uuid) {
+            return this.players.find((player) => (player.UUID === data.uuid ? true : false));
+        }
     }
 }
