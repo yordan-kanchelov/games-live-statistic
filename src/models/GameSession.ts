@@ -14,7 +14,7 @@ export class GameSession {
         setInterval(this.removeInactivePlayers.bind(this), 1000);
     }
 
-    updatePlayer(data: PlayerData): void {
+    updatePlayer(data: PlayerData): string {
         let player = this.findPlayerByName(data.pid);
 
         if (!player) {
@@ -36,6 +36,8 @@ export class GameSession {
         }
 
         player.lastPing = new Date().getTime();
+
+        return player.UUID;
     }
 
     removeInactivePlayers(): void {

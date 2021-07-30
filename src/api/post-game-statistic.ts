@@ -8,9 +8,11 @@ router.route("/game-statistic").post(async (req, res) => {
             throw new Error("Wrong data");
         }
 
-        SessionsManager.getInstance().updateSession(req.body);
+        const playerUUID: string = SessionsManager.getInstance().updateSession(req.body);
 
-        res.sendStatus(200);
+        res.send({
+            playerUUID,
+        });
     } catch (e) {
         console.warn("");
         res.sendStatus(400);
